@@ -4,7 +4,7 @@ export const sales = async () => {
     const response = await fetch("http://localhost:8088/purchases?_expand=entree&_expand=side&_expand=vegetable&");
     const sales = await response.json()
     
-    let salesDivs = sales.map(
+    const salesDivs = sales.map(
         (sale) => {
             const orderPrice = sale.entree.price + sale.side.price + sale.vegetable.price;
             return `
@@ -13,9 +13,7 @@ export const sales = async () => {
                 </div>
             `
         }
-    )
-
-    salesDivs = salesDivs.join("")
+    ).join("")
 
     return salesDivs
 }
