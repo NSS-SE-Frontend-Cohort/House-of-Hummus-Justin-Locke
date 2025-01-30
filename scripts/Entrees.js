@@ -1,4 +1,12 @@
+import { getTransientState, setEntreeId } from "./stateChanges/transientState.js";
 
+document.addEventListener("change", (event) => {
+    if (event.target.name === "entree") {
+        setEntreeId(parseInt(event.target.value));
+        console.log("Entree State Changed: ", getTransientState());
+    };
+    
+});
 
 export const getEntrees = async () => {
 

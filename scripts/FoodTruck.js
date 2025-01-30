@@ -1,7 +1,16 @@
 import { getEntrees } from "./Entrees.js"
 import { sales } from "./Sales.js"
 import { getSides } from "./SideDishes.js"
+import { purchaseCombo } from "./stateChanges/orderState.js"
 import { getVeggies } from "./Vegetables.js"
+
+
+document.addEventListener("click", (event) => {
+    if (event.target.id === "purchase") {
+        purchaseCombo();
+    }
+});
+
 
 export const FoodTruck = async () => {
     const salesHTML = await sales()

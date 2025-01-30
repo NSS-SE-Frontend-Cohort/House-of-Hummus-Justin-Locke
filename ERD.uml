@@ -1,0 +1,35 @@
+@startuml
+
+!define primary_key(x) <b>x</b>
+!define foreign_key(x) <u>x</u>
+
+entity Entrees {
+    primary_key(id) : int
+    name : varchar(50)
+    price : decimal(10,2)
+}
+
+entity Vegetables {
+    primary_key(id) : int
+    type : varchar(50)
+    price : decimal(10,2)
+}
+
+entity Sides {
+    primary_key(id) : int
+    title : varchar(50)
+    price : decimal(10,2)
+}
+
+entity Purchases {
+    primary_key(id) : int
+    foreign_key(entreeID) : int
+    foreign_key(vegetableId) : int
+    foreign_key(sideId) : int
+}
+
+Entrees ||--o{ Purchases : "has"
+Vegetables ||--o{ Purchases : "has"
+Sides ||--o{ Purchases : "has"
+
+@enduml

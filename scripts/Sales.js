@@ -8,7 +8,7 @@ export const sales = async () => {
             const orderPrice = sale.entree.price + sale.side.price + sale.vegetable.price;
             return `
                 <div>
-                    Order #${sale.id} cost ${convertToCurrency(orderPrice)}
+                    Receipt #${sale.id} cost ${convertToCurrency(orderPrice)}
                 </div>
             `
         }
