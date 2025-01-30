@@ -15,6 +15,6 @@ export const getVeggies = async () => {
 
     return `
         <h2>Vegetables</h2>
-        ${vegetables.map(vegetable => `<input type="radio" name="vegetable" value="${vegetable.id}" /> ${vegetable.type}`).join("")}
+        ${vegetables.map(vegetable => `<div><input type="radio" name="vegetable" value="${vegetable.id}" /> ${vegetable.type}</div>`).join("")}
     `;
 };

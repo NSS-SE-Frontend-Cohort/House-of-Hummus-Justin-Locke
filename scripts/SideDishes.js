@@ -14,7 +14,7 @@ export const getSides = async () => {
 
     return `
         <h2>Sides</h2>
-        ${sides.map(side => `<input type="radio" name="sides" value="${side.id}" /> ${side.title}`).join("")}
+        ${sides.map(side => `<div><input type="radio" name="sideDish" value="${side.id}" /> ${side.title}</div>`).join("")}
     `;
 };
 

@@ -1,0 +1,25 @@
+@startuml
+
+class Main
+
+Main -> Foodtruck
+
+Foodtruck --> Entrees
+Foodtruck --> Sales
+Foodtruck --> OrderState
+Foodtruck --> Vegetables
+
+Entrees --> TransientState
+
+Sales --> currencyConverter
+
+SideDishes --> TransientState
+
+OrderState --> TransientState
+
+Vegetables --> TransientState
+
+Foodtruck --> SideDishes
+
+
+@enduml

@@ -25,15 +25,15 @@ export const FoodTruck = async () => {
         </header>
 
         <article class="choices">
-            <section class="choices_entree options">
+            <section class="choices__base options">
                 ${entreesHTML}
             </section>
 
-            <section class="choices_vegetable options">
+            <section class="choices__veggies options">
                 ${vegetablesHTML}
             </section>
 
-            <section class="choices_side options">
+            <section class="choices__sides options">
                 ${sidesHTML}
             </section>
         </article>

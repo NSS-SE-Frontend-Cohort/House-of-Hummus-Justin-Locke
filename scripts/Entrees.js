@@ -16,6 +16,6 @@ export const getEntrees = async () => {
 
     return `
         <h2>Entrees</h2>
-        ${entrees.map(entree => `<input type="radio" name="entree" value="${entree.id}" /> ${entree.name}`).join("")}
+        ${entrees.map(entree => `<div><input type="radio" name="entree" value="${entree.id}" /> ${entree.name}</div>`).join("")}
     `;
 };
