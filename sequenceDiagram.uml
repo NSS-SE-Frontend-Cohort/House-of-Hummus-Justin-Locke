@@ -1,0 +1,46 @@
+@startuml
+participant Main
+Main ->> Foodtruck: Give me HTML
+
+Foodtruck ->> Entrees: Generate entree options
+Entrees ->> API: Give me the choices for entrees
+API ->> Entrees: Here are your choices of entrees
+Entrees ->> Foodtruck: Here are some radio buttons
+
+Foodtruck ->> Vegetables: Generate vegetable options
+Vegetables ->> API: Give me the choices for vegetables
+API ->> Vegetables: Here are your choices of vegetables
+Vegetables ->> Foodtruck: Here are some radio buttons
+
+Foodtruck ->> Sides: Generate side options
+Sides ->> API: Give me the choices of sides
+API ->> Sides: Here are your choices of sides
+Sides ->> Foodtruck: Here are some radio buttons
+
+Foodtruck ->> Main: Here are all your choices
+
+Main ->> Foodtruck: I choose this entree
+Foodtruck ->> Entrees: They want this entree
+Entree ->> TransientState: Remember this entree
+TransientState ->> Main: I see you want this entree
+
+Main ->> Foodtruck: I choose this vegetable
+Foodtruck ->> Vegetables: They want this vegetable
+Vegetables ->> TransientState: Remember this vegetable
+TransientState ->> Main: I see you want this vegetable
+
+Main ->> Foodtruck: I choose this side
+Foodtruck ->> Sides: They want this side
+Sides ->> TransientState: Remember this side
+TransientState ->> Main: I see you want this side
+
+Main ->> Foodtruck: This looks great, I'll buy it
+Foodtruck ->> OrderState: They want this meal
+OrderState ->> TransientState: What meal do they want?
+TransientState ->> OrderState: This meal
+
+OrderState->>API: Save this dinner order
+API-->>OrderState: Order saved
+OrderState ->> Foodtruck: Order saved
+
+@enduml

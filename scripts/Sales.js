@@ -1,9 +1,19 @@
-export const Sales = async () => {
-    const sales = await fetch("http://localhost:8088/orders").then(res => res.json())
+import { convertToCurrency } from "./utility.js/currencyConverter.js";
 
-    let salesDivs = sales.map()
-
-    salesDivs = salesDivs.join("")
+export const sales = async () => {
+    const response = await fetch("http://localhost:8088/purchases?_expand=entree&_expand=side&_expand=vegetable&");
+    const sales = await response.json()
+    
+    const salesDivs = sales.map(
+        (sale) => {
+            const orderPrice = sale.entree.price + sale.side.price + sale.vegetable.price;
+            return `
+                <div>
+                    Receipt #${sale.id} = ${convertToCurrency(orderPrice)}
+                </div>
+            `
+        }
+    ).join("")
 
     return salesDivs
 }
