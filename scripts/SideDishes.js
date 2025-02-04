@@ -1,7 +1,7 @@
 import { getTransientState, setSideId } from "./stateChanges/transientState.js";
 
 document.addEventListener("change", (event) => {
-    if (event.target.name === "sides") {
+    if (event.target.name === "sideDish") {
         setSideId(parseInt(event.target.value));
         console.log("Side State Changed: ", getTransientState());
     };
